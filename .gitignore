@@ -1,2 +1,7 @@
 AID/
 AID/**/*.jpg
+dataset/
+dataset/**/*.png
+dataset/**/**/**/*.png
+*.pyc
+*.log
