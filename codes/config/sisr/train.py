@@ -43,7 +43,7 @@ def init_dist(backend="nccl", **kwargs):
 def main():
     #### setup options of three networks
     parser = argparse.ArgumentParser()
-    parser.add_argument("-opt", type=str, default="D:/EDiffSR/codes/config/sisr/options/setting.yml")
+    parser.add_argument("-opt", type=str, default="/Users/phulocnguyen/Documents/Workspace/EDiffSR/codes/config/sisr/options/train/setting.yml")
     parser.add_argument(
         "--launcher", choices=["none", "pytorch"], default="none", help="job launcher"  # none means disabled distributed training
     )
@@ -189,8 +189,8 @@ def main():
                 )
         else:
             raise NotImplementedError("Phase [{:s}] is not recognized.".format(phase))
-    assert train_loader is not None
-    assert val_loader is not None
+    # assert train_loader is not None
+    # assert val_loader is not None
 
     #### create model
     model = create_model(opt) 
@@ -225,9 +225,6 @@ def main():
     best_iter = 0
     error = mp.Value('b', False)
 
-    # -------------------------------------------------------------------------
-    # -------------------------正式开始训练，前面都是废话---------------------------
-    # -------------------------------------------------------------------------
     for epoch in range(start_epoch, total_epochs + 1):
         if opt["dist"]:
             train_sampler.set_epoch(epoch)

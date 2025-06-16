@@ -18,6 +18,7 @@ def define_G(opt):
 # Discriminator
 def define_D(opt):
     opt_net = opt["network_D"]
+    which_model = opt_net["which_model_D"]
     setting = opt_net["setting"]
     netD = getattr(M, which_model)(**setting)
     return netD
