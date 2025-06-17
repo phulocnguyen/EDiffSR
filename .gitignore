@@ -5,3 +5,4 @@ dataset/**/*.png
 dataset/**/**/**/*.png
 *.pyc
 *.log
+__pycache__/
